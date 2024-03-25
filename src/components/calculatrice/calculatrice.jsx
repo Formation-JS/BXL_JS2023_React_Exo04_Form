@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 // Entier
 const numberRegex1 = /^-?\d*$/;
@@ -15,6 +15,7 @@ const Calculatrice = () => {
     const [nb2, setNb2] = useState('');
     const [op, setOp] = useState('*');
     const [result, setResult] = useState('');
+    const id = useId();
 
     const handleInputNumber = (e, setValue) => {
         const { value } = e.target;
@@ -52,14 +53,14 @@ const Calculatrice = () => {
     return (
         <form onSubmit={handleCalcSubmit}>
             <div>
-                <label htmlFor="input-nb1">Nombre 1 : </label>
-                <input type="text" id='input-nb1'
+                <label htmlFor={id + '-nb1'}>Nombre 1 : </label>
+                <input type="text" id={id + '-nb1'}
                     value={nb1}
                     onChange={(e) => handleInputNumber(e, setNb1)} />
             </div>
             <div>
-                <label htmlFor="input-op">Opération : </label>
-                <select id="input-op"
+                <label htmlFor={id + '-op'}>Opération : </label>
+                <select id={id + '-op'}
                     value={op}
                     onChange={(e) => setOp(e.target.value)}>
                     <option value="+">+</option>
@@ -69,8 +70,8 @@ const Calculatrice = () => {
                 </select>
             </div>
             <div>
-                <label htmlFor="input-nb3">Nombre 2 : </label>
-                <input type="text" id='input-nb3'
+                <label htmlFor={id + '-nb2'}>Nombre 2 : </label>
+                <input type="text" id={id + '-nb2'}
                     value={nb2}
                     onChange={(e) => handleInputNumber(e, setNb2)}/>
             </div>
@@ -78,8 +79,8 @@ const Calculatrice = () => {
                 <button type="submit">Calculer</button>
             </div>
             <div>
-                <label htmlFor="input-result">Resultat : </label>
-                <input type="text" id='input-result'
+                <label htmlFor={id + '-res'}>Resultat : </label>
+                <input type="text" id={id + '-res'}
                     value={result}
                     readOnly />
             </div>

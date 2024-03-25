@@ -7,6 +7,10 @@ function App() {
     <>
       <h1>Exo 04 - Calculatrice</h1>
       <Calculatrice />
+      <hr />
+      <Calculatrice />
+      <hr />
+      <Calculatrice />
     </>
   )
 }
